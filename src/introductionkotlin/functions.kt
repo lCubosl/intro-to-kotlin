@@ -1,3 +1,5 @@
+package introductionkotlin
+
 // -- DEFINE AND CALL A FUNCTION --
 // calling the function causes the entire code inside it to execute
 // println() is part of the kotlin language.
@@ -24,7 +26,7 @@ fun birthdayGreeting() {
 
 // -- RETURN VALUE FROM FUNCTION --
 // Unit type is default return type means function doesn't return value.
-// birthdayGreeting() and birthdayGreeting1() are the same
+// introduction-to-kotlin.birthdayGreeting() and introduction-to-kotlin.birthdayGreeting1() are the same
 // : Unit is omited in the 1st and specified here in the 2nd
 fun birthdayGreeting1(): Unit {
     println("Happy Birthday, Rover!")

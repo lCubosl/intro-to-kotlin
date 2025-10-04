@@ -1,3 +1,5 @@
+package introductionkotlin
+
 fun main() {
     println("--------------------------------------------------------")
     // -- DEFINE AND USE VARIABLES --

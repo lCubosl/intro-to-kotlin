@@ -1,4 +1,4 @@
-package `practice-problems`
+package introductionkotlin.practiceproblems
 
 fun main() {
     val steps = 4000

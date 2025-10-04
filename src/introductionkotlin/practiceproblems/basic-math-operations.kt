@@ -1,4 +1,4 @@
-package `practice-problems`
+package introductionkotlin.practiceproblems
 
 fun main() {
     val firstNumber = 10
@@ -18,7 +18,7 @@ fun main() {
     println("$firstNumber - $thirdNumber = $anotherResult3")
 }
 
-// Define add() function below this line
+// Define introductionkotlin.practiceproblems.add() function below this line
 fun add(n1: Int, n2: Int): Int {
     return n1 + n2
 }
