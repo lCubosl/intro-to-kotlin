@@ -3,14 +3,20 @@ package classes
 open class SmartDeviceTest(val name: String, val category: String) {
     var deviceStatus = "online"
 
+    open val deviceType = "unknown"
+
     open fun turnOn() {
+        deviceStatus = "on"
     }
     open fun turnOff() {
+        deviceStatus = "off"
     }
 }
 
 class SmartTvDevice(deviceName: String, deviceCategory: String):
     SmartDeviceTest(name= deviceName, category= deviceCategory) {
+
+    override val deviceType = "smart TV"
     var speakerVolume = 2
         set(value) {
             if (value in 0..100) {
@@ -33,6 +39,7 @@ class SmartTvDevice(deviceName: String, deviceCategory: String):
     }
 
     override fun turnOn() {
+        super.turnOn()
         deviceStatus = "on"
         println(
             "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
@@ -41,6 +48,7 @@ class SmartTvDevice(deviceName: String, deviceCategory: String):
     }
 
     override fun turnOff() {
+        super.turnOff()
         deviceStatus = "off"
         println("$name turned off")
     }
@@ -48,6 +56,8 @@ class SmartTvDevice(deviceName: String, deviceCategory: String):
 
 class SmartLightDevice(deviceName: String, deviceCategory: String):
     SmartDeviceTest(name= deviceName, category= deviceCategory) {
+
+    override val deviceType = "smart Light"
     var brightnessLevel= 0
         set(value) {
             if (value in 0..200) {
@@ -60,13 +70,13 @@ class SmartLightDevice(deviceName: String, deviceCategory: String):
     }
 
     override fun turnOn() {
-        deviceStatus = "on"
+        super.turnOn()
         brightnessLevel = 2
         println("$name turned on. The brightness level is $brightnessLevel.")
     }
 
     override fun turnOff() {
-        deviceStatus = "off"
+        super.turnOff()
         brightnessLevel = 0
         println("Smart Light turned off")
     }
