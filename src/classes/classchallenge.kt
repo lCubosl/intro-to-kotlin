@@ -114,8 +114,10 @@ class SmartHome1(
         smartTvDevice.turnOn()
     }
     fun turnOffTv() {
-        deviceTurnOnCount--
-        smartTvDevice.turnOff()
+        if(deviceTurnOnCount >= 1) {
+            deviceTurnOnCount--
+            smartTvDevice.turnOff()
+        }
     }
 
     fun turnOnLight() {
@@ -123,17 +125,26 @@ class SmartHome1(
         smartLightDevice.turnOn()
     }
     fun turnOffLight() {
-        deviceTurnOnCount--
-        smartLightDevice.turnOff()
+        if(deviceTurnOnCount >= 1) {
+            deviceTurnOnCount--
+            smartLightDevice.turnOff()
+        }
     }
 
     fun increaseLightBrightness() {
-        smartLightDevice.increaseBrightness()
+        if(deviceTurnOnCount >= 1) {
+            smartLightDevice.increaseBrightness()
+        }
     }
     fun turnOffAllDevices() {
         turnOffTv()
         turnOffLight()
     }
+    fun decreaseTvVolume() {}
+    fun changeTvChannelToPrevious() {}
+    fun printSmartTvInfo(){}
+    fun printSmartLightInfo(){}
+    fun decreaseLightBrightness() {}
 }
 
 class RangeRegulator1(
@@ -164,5 +175,4 @@ fun main() {
     println("-----------------------")
     smartDevice.printDeviceInfo()
     println("-----------------------")
-
 }
