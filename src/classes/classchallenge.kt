@@ -16,6 +16,10 @@ open class SmartDeviceChallenge protected constructor(val name: String, val cate
     open fun turnOff() {
         deviceStatus = "off"
     }
+
+    open fun printDeviceInfo() {
+        println("Device name: $name, \ncategory: $category, \ntype: $deviceType")
+    }
 }
 
 // SMART TV
@@ -29,10 +33,18 @@ SmartDeviceChallenge(name= deviceName, category = deviceCategory, type = deviceT
         speakerVolume++
         println("Speaker volume increased to $speakerVolume")
     }
+    fun decreaseVolume() {
+        speakerVolume--
+        println("Speaker volume decreased to $speakerVolume")
+    }
 
     fun nextChannel() {
         channelNumber++
-        println("Speaker volume increased to $speakerVolume")
+        println("Speaker volume increased to $channelNumber")
+    }
+    fun previousChannel() {
+        channelNumber--
+        println("Speaker volume decreased to $channelNumber")
     }
 
     override fun turnOn() {
@@ -42,6 +54,13 @@ SmartDeviceChallenge(name= deviceName, category = deviceCategory, type = deviceT
             "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
                     "set to $channelNumber."
         )
+        increaseSpeakerVolume()
+        increaseSpeakerVolume()
+        decreaseVolume()
+        nextChannel()
+        nextChannel()
+        nextChannel()
+        previousChannel()
     }
 
     override fun turnOff() {
@@ -61,11 +80,19 @@ SmartDeviceChallenge(name= deviceName, category = deviceCategory, type = deviceT
         brightnessLevel++
         println("Brightness increased to $brightnessLevel.")
     }
+    fun decreaseBrightness() {
+        brightnessLevel--
+        println("Brightness decreased to $brightnessLevel.")
+    }
 
     override fun turnOn() {
         super.turnOn()
         brightnessLevel = 2
         println("$name turned on. The brightness level is $brightnessLevel.")
+        increaseBrightness()
+        increaseBrightness()
+        increaseBrightness()
+        decreaseBrightness()
     }
 
     override fun turnOff() {
@@ -128,8 +155,14 @@ class RangeRegulator1(
 
 fun main() {
     var smartDevice: SmartDeviceChallenge = SmartTvDevice1("Android Tv", "Entertainment", "Cat1")
-    smartDevice.turnOn()
 
+    smartDevice.turnOn()
+    smartDevice.turnOff()
+    println("-----------------------")
     smartDevice = SmartLightDevice1("Google Light","Light","Cat2")
     smartDevice.turnOn()
+    println("-----------------------")
+    smartDevice.printDeviceInfo()
+    println("-----------------------")
+
 }
