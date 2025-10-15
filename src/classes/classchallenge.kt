@@ -140,11 +140,21 @@ class SmartHome1(
         turnOffTv()
         turnOffLight()
     }
-    fun decreaseTvVolume() {}
-    fun changeTvChannelToPrevious() {}
-    fun printSmartTvInfo(){}
-    fun printSmartLightInfo(){}
-    fun decreaseLightBrightness() {}
+    fun decreaseTvVolume() {
+        smartTvDevice.decreaseVolume()
+    }
+    fun changeTvChannelToPrevious() {
+        smartTvDevice.previousChannel()
+    }
+    fun printSmartTvInfo(){
+        smartTvDevice.printDeviceInfo()
+    }
+    fun printSmartLightInfo(){
+        smartLightDevice.printDeviceInfo()
+    }
+    fun decreaseLightBrightness() {
+        smartLightDevice.decreaseBrightness()
+    }
 }
 
 class RangeRegulator1(
@@ -174,5 +184,18 @@ fun main() {
     smartDevice.turnOn()
     println("-----------------------")
     smartDevice.printDeviceInfo()
+    println("-----------------------")
+
+    val tv = SmartTvDevice1("samsung Tv", "entertainment", " Cat1")
+    val light = SmartLightDevice1("samsung Light", "Light", " Cat2")
+
+    val smartHome = SmartHome1(tv, light)
+
+    smartHome.turnOnTv()
+    smartHome.turnOnLight()
+    smartHome.increaseLightBrightness()
+    smartHome.decreaseLightBrightness()
+    smartHome.printSmartTvInfo()
+    smartHome.printSmartLightInfo()
     println("-----------------------")
 }
